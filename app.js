@@ -1,5 +1,5 @@
 alert('Boas vindas ao jogo do número secreto!');
-let numeroSecreto = 4;
+let numeroSecreto = parseInt(Math.random() * 10) + 1; // Correção: Adicionado parseInt para garantir que seja um número inteiro
 console.log(numeroSecreto);
 let chute; // Correção: Ponto e vírgula adicionado
 let tentativas = 1; // Correção: Variável para contar o número de tentativas
@@ -10,7 +10,7 @@ while (chute != numeroSecreto) {
 
     // se chute for igual ao numeroSecreto
     if (chute == numeroSecreto) {
-        alert('Parabéns! Você acertou o número secreto! Número de tentativas: ' + tentativas);
+        break; // Correção: Adicionado break para sair do loop quando o jogador acertar
     } else {
         if (numeroSecreto > chute) {
             // Correção: Alterado de console.log para alert para o jogador ver a dica
@@ -21,4 +21,9 @@ while (chute != numeroSecreto) {
         }
         tentativas++; // Incrementa o número de tentativas
     }
+}
+if (tentativas > 1) {
+    alert('Parabéns! Você acertou o número secreto! Número de tentativas: ' + tentativas);
+} else {    
+    alert('Parabéns! Você acertou o número secreto na primeira tentativa!');
 }
